@@ -1,0 +1,120 @@
+body {
+    scrollbar-width: thin; /* Options: auto, thin, none */
+    scrollbar-color: #aba9a9 #f1f1f1; /* thumb color and track color */
+}
+
+/*favMealContainer*/
+
+#favMealContainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+    padding: 60px;
+    justify-content: space-evenly;
+    height: auto;
+}
+
+.detailsDiv {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0; /* No space between the flex items */
+  margin: 10px; /* 10 external margin around the element */
+  padding: 0; /* No internal padding inside the element */
+  height: 500px;
+  background-color: rgb(250, 249, 248);
+}
+.nameP, .price, .detailsDiv span {
+  margin:0;
+  padding: 0;
+}
+
+/*meal name class*/
+.nameP{
+  font-size: large;
+  font-weight:400;
+  color: #e75703;
+}
+
+/*meal price class*/
+.price{
+  font-size:2.1ch;
+}
+.imgDiv{
+    position: relative;
+    width: 350px;
+    height: 300px;
+    border-bottom: 1px solid rgb(193, 193, 193);
+    margin-bottom: 8px;
+}
+
+.img{
+    position: absolute;
+    width: 350px;
+    height: 300px;
+    object-fit: cover;
+    transition: opacity 0.5s ease;
+}
+
+.star{
+  padding: 10px;
+  font-size: 2ch;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  width:95%;
+  margin-right:-15px;
+  
+}
+.star:hover{
+  font-size: 2.8ch;
+  color:#c81717;
+  font-weight: bolder;
+  border-radius: 50%;
+}
+.starBackground{
+  border-radius: 50%;
+  color:#c81717;
+}
+
+.DetailButton{
+  margin-top: 5px;
+  margin-bottom: 5px;
+  width: 250px;
+  height: 40px;
+  background-color: #e9d8ce;
+  font-weight: bolder;
+  font-size: 2ch;
+  color: rgb(68, 54, 54);
+  border:2px solid #e9c2ac;
+  transition: transform 0.1s ease, background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
+
+}
+
+.DetailButton:hover{
+  height: 43px;
+  background-color: #181818;
+  color: #e9c2ac;
+  border:3px solid #e9c2ac;
+  transform: scale(1.05);
+}
+
+/*Detail section*/
+
+.hidden{
+  display: none;
+}
+.nutritionDiv{
+  margin-bottom: 5px;
+   max-height: 80px; /* Set a maximum height */
+    overflow-y: auto; /* Enable vertical scroll */
+    width: 100%; /* Ensure it takes full width */
+}
+.nutrientP{
+  margin:0;
+  padding: 0;
+  font-weight:400;
+  color: #e75703;
+}
+

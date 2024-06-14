@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ <link rel="stylesheet" href="accest/style.css">
+ <link rel="stylesheet" href="accest/myFavouriteMeal.css">
+ <link rel="stylesheet" href="accest/mealDetail.css">
+</head>
+<body>
+    <nav class="navbar">
+        <img src="logo/FoodLogonav.png">
+        <a href="index.html">HOME</a>
+        <a href="mealDetail.html">MEAL DETAIL</a>
+        <a href="myFavouriteMealPage.html">MY FAVOURITE MEAL</a>
+    </nav>
+
+    <div id="allContainer">
+        <div id="randomFoodImage1">
+             <!-- Images will be added here by JavaScript -->
+        </div>
+        <div id="foodDetailContainer">
+            <div id="foodDetail">
+
+            </div>
+        
+            <div>
+                <h2>Ingredients</h2>
+            </div>
+            <div id="ingredients">
+
+            </div>
+
+        </div>
+        <div id="randomFoodImage2">
+             <!-- Images will be added here by JavaScript -->
+        </div>
+    </div>
+     <script>
+        const randomFoodImage1= document.getElementById('randomFoodImage1');
+        const randomFoodImage2= document.getElementById('randomFoodImage2');
+        const img= fetch('https://api.unsplash.com/search/photos?client_id=Hso5xOg_Epe2zZHXsqRbmJuUNp_YX_MqSs4m7Z3POSs&query=food')
+        .then(foodResponse => {
+            if (!foodResponse.ok) {
+                throw new Error('Food not found');
+            }
+            return foodResponse.json();
+        }).then(img=>{
+            console.log(img.results);
+            let len = img.results.length;
+            let rendomIndex1 = img.results[(Math.floor(Math.random() * len))];
+            let srcLink1 = rendomIndex1.urls.full
+            let rendomIndex2 = img.results[(Math.floor(Math.random() * len))];
+            let srcLink2 = rendomIndex2.urls.full
+            const img1 = document.createElement('img');
+            img1.src = srcLink1;
+            const img2 = document.createElement('img');
+            img2.src = srcLink2;
+            randomFoodImage1.appendChild(img1);
+            randomFoodImage2.appendChild(img2);
+             img1.onerror = function() {
+                    console.error('Error loading image:', img1.src);
+                };
+                
+                img1.onload = function() {
+                    console.log('Image loaded successfully:', img1.src);
+                };
+        }).catch(err=>{
+            console.log('unsplash image is not loaded ');
+        })
+    </script>
+    <script src="https://kit.fontawesome.com/7b2c4ced72.js" crossorigin="anonymous"></script>
+    <script src="accest/mealDetail.js"></script>
+</body>
+</html>
